@@ -1,0 +1,73 @@
+﻿@{ 
+    string area = (ViewContext.RouteData.DataTokens["area"] ?? String.Empty).ToString().ToLower();
+    string actionName = ViewContext.RouteData.Values["action"].ToString();
+    string controllerName = ViewContext.RouteData.Values["controller"].ToString();
+    Uri auxBaseUri = new Uri(Request.Url.GetLeftPart(UriPartial.Authority));
+    Uri baseUri = new Uri(auxBaseUri, Url.Content("~"));
+    Session["baseUri"] = baseUri.ToString(); 
+}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link href="~/Content/assets/images/icon.ico" rel="shortcut icon" type="image/x-icon">
+    <!-- rtl fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+    <title>جامعة الأقصى | نظام الأرشفة</title>
+    @{ Html.RenderPartial("_Styles");}
+
+    @RenderSection("styles", required: false)
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif !important;
+        }
+    </style>
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="skin-default-dark fixed-layout rtl">
+     
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <div id="main-wrapper">
+
+        <!-- ============================================================== -->
+        <!-- Topbar header - style you can find in pages.scss -->
+        <!-- ============================================================== -->
+        @{ Html.RenderPartial("_Header");}
+        <!-- ============================================================== -->
+        <!-- End Topbar header -->
+        <!-- ============================================================== -->
+
+        @{ Html.RenderPartial("_SideMenu");}
+
+        <div class="page-wrapper">
+            <div class="container-fluid">
+                @RenderBody()
+            </div>
+        </div>
+        @{ Html.RenderPartial("_Footer");}
+
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    @{ Html.RenderPartial("_Scripts");}
+    @RenderSection("scripts", required: false)
+
+</body>
+
+</html>

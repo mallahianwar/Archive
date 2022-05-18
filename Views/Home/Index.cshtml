@@ -1,0 +1,149 @@
+﻿@{ 
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link href="~/Content/assets/images/icon.ico" rel="shortcut icon" type="image/x-icon">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+
+    <title>جامعة الأقصى</title>
+    <!-- Custom CSS -->
+    <link href="@Url.Content("~/Content/assets/dist/css/style.min.css")" rel="stylesheet" type="text/css" />
+    <style>
+        h2 {
+            font-family: 'Cairo', sans-serif !important;
+        }
+
+        .footer, .page-wrapper {
+            margin-right: 0 !important
+        }
+
+        .card-body {
+            margin: auto;
+            color: #373435
+        }
+
+            .card-body h2 {
+                width: 100%
+            }
+
+        .page-wrapper {
+            margin-top: 30px
+        }
+
+        .topbar .top-navbar .navbar-header {
+            padding-right: 0;
+            background: #fff !important
+        }
+    </style>
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+</head>
+
+<body class="skin-default-dark fixed-layout">
+
+    <div id="main-wrapper">
+        @{ Html.RenderPartial("_Header");}
+
+        <!-- ============================================================== -->
+        <!-- Page wrapper  -->
+        <!-- ============================================================== -->
+        <div class="page-wrapper">
+            <!-- ============================================================== -->
+            <!-- Container fluid  -->
+            <!-- ============================================================== -->
+            <div class="container-fluid">
+                <!-- Info box -->
+                <!-- ============================================================== -->
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-lg-3 col-md-6">
+                        <a href="@Url.Action("Test", "Home")" class="card">
+                            <div class="card-body">
+                                <div class="d-flex no-block align-items-center m-t-20 m-b-20">
+                                    <h2 class=" text-center">
+                                        <i class="fa fa-archive fa-5x fa-fw" aria-hidden="true"></i>
+                                    </h2>
+                                </div>
+                                <h2 class="card-title text-center">نظام الأرشفة</h2>
+                            </div>
+                        </a>
+                    </div>
+
+                    <!-- Column -->
+                    <div class="col-lg-3 col-md-6">
+                        <a href="#" class="card">
+                            <div class="card-body">
+                                <div class="d-flex no-block align-items-center m-t-20 m-b-20">
+                                    <h2 class=" text-center">
+                                        <i class="fa fa-random fa-5x fa-fw" aria-hidden="true"></i>
+                                    </h2>
+                                </div>
+                                <h2 class="card-title text-center">نظام 3</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-lg-3 col-md-6">
+                        <a href="#" class="card">
+                            <div class="card-body">
+                                <div class="d-flex no-block align-items-center m-t-20 m-b-20">
+                                    <h2 class=" text-center">
+                                        <i class="fa fa-file fa-5x fa-fw" aria-hidden="true"></i>
+                                    </h2>
+                                </div>
+                                <h2 class="card-title text-center">نظام المراسلات</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-lg-3 col-md-6">
+                        <a href="#" class="card">
+                            <div class="card-body">
+                                <div class="d-flex no-block align-items-center m-t-20 m-b-20">
+                                    <h2 class=" text-center">
+                                        <i class="fa fa-magic fa-5x fa-fw" aria-hidden="true"></i>
+                                    </h2>
+                                </div>
+                                <h2 class="card-title text-center">نظام 4</h2>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- Column -->
+                </div>
+                <!-- ============================================================== -->
+                <!-- End Info box -->
+                <!-- ============================================================== -->
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Container fluid  -->
+            <!-- ============================================================== -->
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Page wrapper  -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+    </div>
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+   
+    <script src="@Url.Content("~/Content/assets/node_modules/jquery/jquery-3.2.1.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/node_modules/bootstrap/dist/js/bootstrap.min.js")"></script>
+ </body>
+
+</html>

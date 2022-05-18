@@ -1,0 +1,123 @@
+﻿@using Archive.Models
+@using Archive.Resources;
+
+@model LoginViewModel
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en" dir="rtl">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <!-- Favicon icon -->
+    <link href="~/Content/assets/images/icon.ico" rel="shortcut icon" type="image/x-icon">
+    <!--Fonts-->
+    <link href="https://fonts.googleapis.com/css?family=Cairo" rel="stylesheet">
+    <title>تسجيل الدخول</title>
+
+    <!-- page css -->
+    <link href="@Url.Content("~/Content/assets/dist/css/pages/login-register-lock.css")" rel="stylesheet" type="text/css" />
+    <!-- Custom CSS -->
+    <link href="@Url.Content("~/Content/assets/dist/css/style.min.css")" rel="stylesheet" type="text/css" />
+
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <style>
+        body, h3 {
+            font-family: 'Cairo', sans-serif !important;
+        }
+    </style>
+</head>
+
+<body class="skin-default card-no-border">
+    <!-- ============================================================== -->
+    <!-- Main wrapper - style you can find in pages.scss -->
+    <!-- ============================================================== -->
+    <section id="wrapper">
+        <div class="login-register" style="background-image:url(../../Content/assets/images/background/back.png);">
+            <div class="login-box card">
+                <div class="card-body">
+                    @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        @*@Html.ValidationSummary(true, "", new { @class = "text-danger" })*@
+                        <h3 class="box-title text-center m-b-20">@Lang_ar.LoginPage_Tittle - @Lang_ar.Login</h3>
+                        <div class="form-group ">
+                            <div class="col-xs-12">
+                                @*<input class="form-control" type="text" required="" placeholder="">*@
+                                @Html.TextBoxFor(m => m.Db_UserName, new { @class = "form-control", @placeholder = @Lang_ar.UserName })
+                                @Html.ValidationMessageFor(m => m.Db_UserName, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-xs-12">
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", @placeholder = @Lang_ar.Pass })
+                                @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <div class="col-md-12">
+                                <div class="custom-control custom-checkbox">
+                                    <input type="checkbox" class="custom-control-input" id="customCheck1">
+                                    <label class="custom-control-label" for="customCheck1">@Lang_ar.RememberMe </label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group text-center">
+                            <div class="col-xs-12 p-b-20">
+                                <button class="btn btn-block btn-lg btn-info btn-rounded" type="submit">
+                                    @Lang_ar.Login
+                                </button>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================================================== -->
+    <!-- End Wrapper -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- All Jquery -->
+    <!-- ============================================================== -->
+    <script src="@Url.Content("~/Content/assets/node_modules/jquery/jquery-3.2.1.min.js")"></script>
+    <!-- Bootstrap tether Core JavaScript -->
+    <script src="@Url.Content("~/Content/assets/node_modules/popper/popper.min.js")"></script>
+    <script src="@Url.Content("~/Content/assets/node_modules/bootstrap/dist/js/bootstrap.min.js")"></script>
+    <!--validate JavaScript -->
+    <script src="@Url.Content("~/Scripts/jquery.validate.min.js")"></script>
+    <script src="@Url.Content("~/Scripts/jquery.validate.unobtrusive.min.js")"></script>
+    <!--Custom JavaScript -->
+    <script type="text/javascript">
+        $(function () {
+            $(".preloader").fadeOut();
+        });
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        });
+        // ==============================================================
+        // Login and Recover Password
+        // ==============================================================
+        $('#to-recover').on("click", function () {
+            $("#loginform").slideUp();
+            $("#recoverform").fadeIn();
+        });
+    </script>
+
+</body>
+
+</html>
